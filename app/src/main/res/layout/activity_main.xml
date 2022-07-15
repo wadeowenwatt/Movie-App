@@ -21,6 +21,8 @@
         android:layout_height="wrap_content"
         app:menu="@menu/bottom_nav_menu"
         android:layout_gravity="bottom"
-        android:background="@drawable/gradient_bottom_nav"/>
+        app:itemTextColor="@color/white"
+        app:itemRippleColor="@color/white"
+        android:background="@drawable/gradient_background"/>
 
 </FrameLayout>

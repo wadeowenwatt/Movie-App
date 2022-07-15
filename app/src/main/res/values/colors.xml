@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="invisible">#00FFFFFF</color>
-    <color name="dot_tab_color">#826EC8</color>
-    <color name="dot_tab_color_selected">#64ABDB</color>
+    <color name="dot_tab_color">#B3826EC8</color>
+    <color name="dot_tab_color_selected">#B364ABDB</color>
     <color name="imdb_color">#F5C518</color>
 </resources>

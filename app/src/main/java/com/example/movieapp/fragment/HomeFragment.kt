@@ -11,12 +11,16 @@ import com.example.movieapp.R
 import com.example.movieapp.adapter.MPViewPagerAdapter
 import com.example.movieapp.adapter.URViewPagerAdapter
 import com.example.movieapp.databinding.FragmentHomeBinding
+import com.example.movieapp.databinding.LayoutHomeBinding
 import kotlin.math.abs
 
 class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
+//    private var _binding: FragmentHomeBinding? = null
+//    private val binding get() = _binding!!
+
+    private var _bindingLayout : LayoutHomeBinding? = null
+    private val bindingLayout get() = _bindingLayout!!
 
     private var nextItemVisibleDimens: Float? = null
     private var currentItemHorizontalMarginDimens: Float? = null
@@ -26,30 +30,31 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater)
-        return binding.root
+//        _binding = FragmentHomeBinding.inflate(inflater)
+        _bindingLayout = LayoutHomeBinding.inflate(inflater)
+        return bindingLayout.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val imageList = listOf(
-            R.drawable.sasuke,
-            R.drawable.naruto,
-            R.drawable.pikacheem
+            R.drawable.bob,
+            R.drawable.bob,
+            R.drawable.bob
         )
 
         /* ViewPager2: Most Popular */
         val adapter1 = MPViewPagerAdapter(imageList)
-        binding.viewpager2MostPopular.adapter = adapter1
+        bindingLayout.viewpager2MostPopular.adapter = adapter1
 
-        binding.viewpager2MostPopular.offscreenPageLimit = 1
+        bindingLayout.viewpager2MostPopular.offscreenPageLimit = 1
 
         nextItemVisibleDimens = resources.getDimension(R.dimen.viewpager_next_item_visible_1)
         currentItemHorizontalMarginDimens =
             resources.getDimension(R.dimen.viewpager_current_item_horizontal_margin_1)
 
-        binding.viewpager2MostPopular.setPageTransformer(
+        bindingLayout.viewpager2MostPopular.setPageTransformer(
             transformerItem(
                 nextItemVisibleDimens,
                 currentItemHorizontalMarginDimens,
@@ -57,26 +62,26 @@ class HomeFragment : Fragment() {
             )
         )
 
-        binding.viewpager2MostPopular.addItemDecoration(
+        bindingLayout.viewpager2MostPopular.addItemDecoration(
             HorizontalMarginItemDecoration(
                 requireContext(),
                 R.dimen.viewpager_current_item_horizontal_margin_1
             )
         )
 
-        binding.dotTab1.attachTo(binding.viewpager2MostPopular)
+        bindingLayout.dotTab1.attachTo(bindingLayout.viewpager2MostPopular)
 
         /* ViewPager2: Upcoming releases */
         val adapter2 = URViewPagerAdapter(imageList)
-        binding.viewpager2Upcoming.adapter = adapter2
+        bindingLayout.viewpager2Upcoming.adapter = adapter2
 
-        binding.viewpager2Upcoming.offscreenPageLimit = 1
+        bindingLayout.viewpager2Upcoming.offscreenPageLimit = 1
 
         nextItemVisibleDimens = resources.getDimension(R.dimen.viewpager_next_item_visible_2)
         currentItemHorizontalMarginDimens =
             resources.getDimension(R.dimen.viewpager_current_item_horizontal_margin_2)
 
-        binding.viewpager2Upcoming.setPageTransformer(
+        bindingLayout.viewpager2Upcoming.setPageTransformer(
             transformerItem(
                 nextItemVisibleDimens,
                 currentItemHorizontalMarginDimens,
@@ -84,14 +89,14 @@ class HomeFragment : Fragment() {
             )
         )
 
-        binding.viewpager2Upcoming.addItemDecoration(
+        bindingLayout.viewpager2Upcoming.addItemDecoration(
             HorizontalMarginItemDecoration(
                 requireContext(),
                 R.dimen.viewpager_current_item_horizontal_margin_2
             )
         )
 
-        binding.dotTab2.attachTo(binding.viewpager2Upcoming)
+        bindingLayout.dotTab2.attachTo(bindingLayout.viewpager2Upcoming)
     }
 
     // set transformer for item of ViewPager2

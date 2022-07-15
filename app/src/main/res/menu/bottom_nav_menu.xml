@@ -11,14 +11,17 @@
         android:title="." />
 
     <item
-        android:id="@+id/userFragment"
+        android:id="@+id/ticketFragment"
+        android:icon="@drawable/icon_ticket"
         android:title="." />
 
     <item
-        android:id="@+id/ticketFragment"
+        android:id="@+id/userFragment"
+        android:icon="@drawable/icon_user"
         android:title="." />
 
     <item
         android:id="@+id/shuffleFragment"
+        android:icon="@drawable/icon_shuffle"
         android:title="."/>
 </menu>
