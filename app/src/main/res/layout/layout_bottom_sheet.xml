@@ -2,16 +2,223 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/film_background_image"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:backgroundTint="@android:color/darker_gray"
+        app:cardCornerRadius="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.17">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/film_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Thor"
+                android:textColor="@color/black"
+                android:textSize="64sp"
+                android:fontFamily="@font/boldfont"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <TextView
+                android:id="@+id/film_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/boldfont"
+                app:layout_constraintTop_toBottomOf="@+id/film_name"
+                tools:text="The Dark World"
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <LinearLayout
+                android:id="@+id/linear_attribute"
+                android:layout_width="328dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/film_title"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/movie_genre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="23dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="2"
+                    android:backgroundTint="@android:color/holo_blue_bright"
+                    app:cardCornerRadius="15dp"
+                    app:layout_constraintTop_toBottomOf="@+id/film_title"
+                    app:layout_constraintRight_toLeftOf="@+id/age_admit"
+                    app:layout_constraintLeft_toLeftOf="parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/boldfont"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:gravity="center"
+                        tools:text="Action"
+                        android:textSize="12sp" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/age_admit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="23dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/holo_orange_dark"
+                    app:cardCornerRadius="15dp"
+                    app:layout_constraintTop_toBottomOf="@+id/film_title"
+                    app:layout_constraintRight_toLeftOf="@+id/imdb_score"
+                    app:layout_constraintLeft_toRightOf="@id/movie_genre">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/boldfont"
+                        android:gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        tools:text="16+"
+                        android:textSize="12sp" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/imdb_score"
+                    android:layout_width="73dp"
+                    android:layout_height="23dp"
+                    android:backgroundTint="@color/imdb_color"
+                    android:layout_weight="2"
+                    android:layout_marginRight="50dp"
+                    app:cardCornerRadius="15dp"
+                    app:layout_constraintTop_toBottomOf="@+id/film_title"
+                    app:layout_constraintRight_toLeftOf="@+id/share_button"
+                    app:layout_constraintLeft_toRightOf="@+id/age_admit">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/boldfont"
+                        android:gravity="center"
+                        android:textSize="12sp"
+                        tools:text="IMDb 8.5" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <ImageButton
+                    android:id="@+id/share_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/invisible"
+                    android:scaleType="fitXY"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5"
+                    android:layout_weight="1"
+                    android:src="@drawable/icon_share_button"
+                    app:layout_constraintLeft_toRightOf="@id/imdb_score"
+                    app:layout_constraintRight_toLeftOf="@id/favourite_button"
+                    app:layout_constraintTop_toBottomOf="@id/film_title" />
+
+                <ImageButton
+                    android:id="@+id/favourite_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:background="@color/invisible"
+                    android:layout_weight="1"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5"
+                    android:src="@drawable/icon_favourite_button"
+                    app:layout_constraintLeft_toRightOf="@id/share_button"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/film_title" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="351dp"
+                android:layout_marginTop="17dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/regularfont"
+                app:layout_constraintHorizontal_bias="0.7"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/linear_attribute"
+                tools:text="When the Dark Elves attempt to plunge the universe into darkness, Thor must embark on a perilous and personal journey that will reunite him with doctor Jane ... More" />
+
+            <TextView
+                android:id="@+id/cast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/boldfont"
+                android:textSize="18sp"
+                app:layout_constraintHorizontal_bias="0.114"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/description"
+                tools:text="Cast" />
+
+            <TextView
+                android:id="@+id/see_all_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/regularfont"
+                android:textSize="12sp"
+                app:layout_constraintHorizontal_bias="0.856"
+                app:layout_constraintLeft_toRightOf="@+id/cast"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/description"
+                tools:text="See All" />
+
+            <LinearLayout
+                android:id="@+id/linear_cast"
+                android:layout_width="328dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/cast"
+                android:layout_marginTop="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:orientation="horizontal">
 
 
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
