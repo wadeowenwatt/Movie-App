@@ -20,12 +20,10 @@ class GetHomeUseCase @Inject constructor(
             val popular = repository.getPopular().results.map { it.toHome() }
             val upcoming = repository.getUpcoming().results.map { it.toHome() }
 
-            val listData: ArrayList<HomeTypeModel> = arrayListOf()
+            val listData = mutableListOf<HomeTypeModel>()
 
-            listData.addAll(
-                listOf(
-                    HomeTypeModel(popular, upcoming)
-                )
+            listData.add(
+                HomeTypeModel(popular, upcoming)
             )
 
             emit(Resource.Success(listData))

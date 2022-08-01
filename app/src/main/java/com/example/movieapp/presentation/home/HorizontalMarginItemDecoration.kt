@@ -1,4 +1,4 @@
-package com.example.movieapp
+package com.example.movieapp.presentation.home
 
 import android.content.Context
 import android.graphics.Rect
