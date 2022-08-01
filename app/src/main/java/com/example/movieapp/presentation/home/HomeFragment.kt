@@ -1,10 +1,12 @@
-package com.example.movieapp.fragment
+package com.example.movieapp.presentation.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import com.example.movieapp.HorizontalMarginItemDecoration
 import com.example.movieapp.R
@@ -12,12 +14,11 @@ import com.example.movieapp.adapter.MPViewPagerAdapter
 import com.example.movieapp.adapter.URViewPagerAdapter
 import com.example.movieapp.databinding.FragmentHomeBinding
 import com.example.movieapp.databinding.LayoutHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.abs
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
-
-//    private var _binding: FragmentHomeBinding? = null
-//    private val binding get() = _binding!!
 
     private var _bindingLayout : LayoutHomeBinding? = null
     private val bindingLayout get() = _bindingLayout!!
@@ -25,13 +26,20 @@ class HomeFragment : Fragment() {
     private var nextItemVisibleDimens: Float? = null
     private var currentItemHorizontalMarginDimens: Float? = null
 
+    private val viewModel: HomeViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//        _binding = FragmentHomeBinding.inflate(inflater)
         _bindingLayout = LayoutHomeBinding.inflate(inflater)
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.uiState.collect {
+
+            }
+        }
+
         return bindingLayout.root
     }
 

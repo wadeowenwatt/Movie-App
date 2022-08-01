@@ -9,7 +9,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/gradient_background"
-    tools:context=".fragment.HomeFragment">
+    tools:context=".presentation.home.HomeFragment">
 
     <TextView
         android:id="@+id/hello_user"
@@ -54,7 +54,7 @@
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewpager2_most_popular"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="141dp"
         android:layout_marginTop="15dp"
         android:orientation="horizontal"
