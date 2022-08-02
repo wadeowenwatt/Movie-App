@@ -1,6 +1,4 @@
 package com.example.movieapp.presentation.home
-
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +12,10 @@ import coil.load
 import com.example.movieapp.R
 import com.example.movieapp.domain.model.ItemMostPopular
 
-class MPViewPagerAdapter(private val context: Context, private val imageList: List<ItemMostPopular>) :
+class MPViewPagerAdapter(
+    private val context: Context,
+    private val imageList: List<ItemMostPopular>
+) :
     RecyclerView.Adapter<MPViewPagerAdapter.MPViewHolder>() {
     class MPViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.most_popular_image)
@@ -37,6 +38,7 @@ class MPViewPagerAdapter(private val context: Context, private val imageList: Li
         holder.imdb.text = context.getString(R.string.imdb_most_popular, element.imdb)
         holder.imageView.setOnClickListener {
             it.findNavController()
+//                .navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(element.id.toInt()))
         }
     }
 

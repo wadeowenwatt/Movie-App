@@ -1,6 +1,5 @@
 package com.example.movieapp.domain.use_case
 
-import android.util.Log
 import com.example.movieapp.config.Resource
 import com.example.movieapp.data.remote.dto.toHome
 import com.example.movieapp.domain.irepo.IRepository

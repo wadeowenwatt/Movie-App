@@ -36,12 +36,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val imageList = listOf(
-            R.drawable.bob,
-            R.drawable.bob,
-            R.drawable.bob
-        )
-
         // Binding view
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect { uiState ->
@@ -54,7 +48,8 @@ class HomeFragment : Fragment() {
                                 ItemMostPopular(
                                     uiState.home[0].listPopular[i].image.toString(),
                                     uiState.home[0].listPopular[i].title.toString(),
-                                    uiState.home[0].listPopular[i].imdb.toString()
+                                    uiState.home[0].listPopular[i].imdb.toString(),
+                                    uiState.home[0].listPopular[i].id.toString()
                                 )
                             )
                             listUpcoming.add(

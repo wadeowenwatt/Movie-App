@@ -1,6 +1,5 @@
 package com.example.movieapp.di
 
-import coil.Coil
 import com.example.movieapp.config.FileConfig.BASE_URL
 import com.example.movieapp.data.remote.MovieApi
 import com.example.movieapp.data.repository.RepositoryImp

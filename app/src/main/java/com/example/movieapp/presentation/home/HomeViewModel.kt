@@ -29,7 +29,7 @@ class HomeViewModel @Inject constructor(private val getHomeUseCase: GetHomeUseCa
                 }
                 is Resource.Error -> {
                     _uiState.value =
-                        HomeUiState(error = result.message ?: "An unexpected error occured.")
+                        HomeUiState(error = result.message ?: "An unexpected error occurred.")
                 }
                 is Resource.Loading -> {
                     _uiState.value = HomeUiState(isLoading = true)
