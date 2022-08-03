@@ -4,4 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="detail_cast_title">Cast</string>
     <string name="imdb_most_popular">IMDb %s</string>
+    <string name="imdb_detail_fragment">IMDb %.2f</string>
+    <string name="about_sheet_bottom">About</string>
 </resources>

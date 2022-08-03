@@ -38,7 +38,7 @@ class MPViewPagerAdapter(
         holder.imdb.text = context.getString(R.string.imdb_most_popular, element.imdb)
         holder.imageView.setOnClickListener {
             it.findNavController()
-//                .navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(element.id.toInt()))
+                .navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(element.id.toInt()))
         }
     }
 

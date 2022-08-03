@@ -1,5 +1,6 @@
 package com.example.movieapp.presentation.detail
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.movieapp.config.Resource
@@ -20,7 +21,7 @@ class DetailViewModel @Inject constructor(private val getDetailUseCase: GetDetai
 
     var movieId = 0
 
-    init {
+    fun run() {
         getDetailUseCase.id = movieId
         getDetail()
     }

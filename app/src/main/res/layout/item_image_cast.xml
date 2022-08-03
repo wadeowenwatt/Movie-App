@@ -6,10 +6,10 @@
     android:layout_height="wrap_content"
     android:paddingEnd="7dp">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/cast_image"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,7 +19,6 @@
         android:id="@+id/cast_name"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:fontFamily="@font/regularfont"
         android:gravity="center"
         android:padding="5dp"
@@ -36,7 +35,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/regularfont"
         android:gravity="center"
-        android:textColor="@android:color/background_dark"
+        android:textColor="@android:color/darker_gray"
         android:textSize="8sp"
         tools:text="Thor"
         app:layout_constraintEnd_toEndOf="parent"

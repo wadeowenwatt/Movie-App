@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.movieapp.R
 import com.example.movieapp.databinding.LayoutHomeBinding
 import com.example.movieapp.domain.model.ItemMostPopular
+import com.example.movieapp.domain.model.ItemUpcoming
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.abs
 
@@ -42,20 +44,28 @@ class HomeFragment : Fragment() {
                 when {
                     uiState.home.isNotEmpty() -> {
                         val listMostPopular = mutableListOf<ItemMostPopular>()
-                        val listUpcoming = mutableListOf<String>()
+                        val listUpcoming = mutableListOf<ItemUpcoming>()
                         for (i in 0..10) {
                             listMostPopular.add(
                                 ItemMostPopular(
+                                    uiState.home[0].listPopular[i].id.toString(),
                                     uiState.home[0].listPopular[i].image.toString(),
                                     uiState.home[0].listPopular[i].title.toString(),
-                                    uiState.home[0].listPopular[i].imdb.toString(),
-                                    uiState.home[0].listPopular[i].id.toString()
+                                    uiState.home[0].listPopular[i].imdb.toString()
                                 )
                             )
                             listUpcoming.add(
-                                uiState.home[0].listUpcoming[i].poster.toString()
+                                ItemUpcoming(
+                                    uiState.home[0].listUpcoming[i].poster.toString(),
+                                    uiState.home[0].listUpcoming[i].id.toString()
+                                )
                             )
                         }
+
+                        bindingLayout.searchFilm.setOnClickListener {
+                            it.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
+                        }
+
                         /* ViewPager2: Most Popular */
                         val adapter1 = MPViewPagerAdapter(requireContext(), listMostPopular)
 

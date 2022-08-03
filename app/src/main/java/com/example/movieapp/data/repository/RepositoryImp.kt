@@ -3,6 +3,7 @@ package com.example.movieapp.data.repository
 import com.example.movieapp.data.remote.MovieApi
 import com.example.movieapp.data.remote.dto.detail.DetailMovieData
 import com.example.movieapp.data.remote.dto.home.HomeMovieData
+import com.example.movieapp.data.remote.dto.home.Result
 import com.example.movieapp.domain.irepo.IRepository
 import javax.inject.Inject
 
@@ -19,4 +20,7 @@ class RepositoryImp @Inject constructor(private val api: MovieApi) : IRepository
         return api.getMovieDetail(id)
     }
 
+    override suspend fun getSearch(query: String): HomeMovieData {
+        return api.getSearch(query)
+    }
 }

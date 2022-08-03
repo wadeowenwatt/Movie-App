@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinator_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/app_bar"
@@ -20,6 +20,7 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsing_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:expandedTitleGravity="top"
@@ -28,6 +29,7 @@
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <ImageView
+                    android:id="@+id/banner"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"
@@ -41,18 +43,18 @@
             android:layout_width="match_parent"
             android:layout_height="1200dp"
             android:fillViewport="true"
-            android:translationY="-80dp"
+            android:translationY="-215dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                app:cardCornerRadius="50dp"
+                app:cardCornerRadius="40dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" >
+                app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -63,30 +65,40 @@
                         android:id="@+id/line"
                         android:layout_width="50dp"
                         android:layout_height="3dp"
-                        android:background="@color/white"
                         android:layout_marginTop="10dp"
+                        android:background="@color/white"
                         android:padding="5dp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/film_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="10dp"
                         android:fontFamily="@font/boldfont"
-                        android:textColor="@color/black"
-                        android:textSize="64sp"
+                        android:gravity="center"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:textColor="@color/white"
+                        android:autoSizeTextType="uniform"
+                        android:autoSizeMinTextSize="15sp"
+                        android:autoSizeMaxTextSize="40sp"
+                        android:autoSizeStepGranularity="2sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/line"
-                        tools:text="Thor" />
+                        tools:text="Thor"
+                        tools:targetApi="o" />
 
                     <TextView
                         android:id="@+id/film_eps"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/boldfont"
+                        android:gravity="center"
+                        android:textColor="@android:color/darker_gray"
                         android:textSize="18sp"
                         app:layout_constraintLeft_toLeftOf="@id/film_name"
                         app:layout_constraintRight_toRightOf="@id/film_name"
@@ -97,6 +109,7 @@
                         android:id="@+id/linear_attribute"
                         android:layout_width="328dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:orientation="horizontal"
                         app:layout_constraintLeft_toLeftOf="@id/film_eps"
@@ -104,18 +117,18 @@
                         app:layout_constraintTop_toBottomOf="@+id/film_eps">
 
                         <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/movie_genre"
                             android:layout_width="wrap_content"
                             android:layout_height="23dp"
                             android:layout_marginEnd="10dp"
                             android:layout_weight="2"
                             android:backgroundTint="@android:color/holo_blue_bright"
-                            app:cardCornerRadius="15dp"
+                            app:cardCornerRadius="10dp"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toLeftOf="@+id/age_admit"
                             app:layout_constraintTop_toBottomOf="@+id/film_eps">
 
                             <TextView
+                                android:id="@+id/movie_genre"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="5dp"
@@ -128,18 +141,18 @@
                         </com.google.android.material.card.MaterialCardView>
 
                         <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/age_admit"
                             android:layout_width="wrap_content"
                             android:layout_height="23dp"
                             android:layout_marginEnd="10dp"
                             android:layout_weight="1"
                             android:backgroundTint="@android:color/holo_orange_dark"
-                            app:cardCornerRadius="15dp"
+                            app:cardCornerRadius="10dp"
                             app:layout_constraintLeft_toRightOf="@id/movie_genre"
                             app:layout_constraintRight_toLeftOf="@+id/imdb_score"
                             app:layout_constraintTop_toBottomOf="@+id/film_eps">
 
                             <TextView
+                                android:id="@+id/age_admit"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="5dp"
@@ -152,18 +165,18 @@
                         </com.google.android.material.card.MaterialCardView>
 
                         <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/imdb_score"
                             android:layout_width="73dp"
                             android:layout_height="23dp"
                             android:layout_marginRight="50dp"
                             android:layout_weight="2"
                             android:backgroundTint="@color/imdb_color"
-                            app:cardCornerRadius="15dp"
+                            app:cardCornerRadius="10dp"
                             app:layout_constraintLeft_toRightOf="@+id/age_admit"
                             app:layout_constraintRight_toLeftOf="@+id/share_button"
                             app:layout_constraintTop_toBottomOf="@+id/film_eps">
 
                             <TextView
+                                android:id="@+id/imdb_score"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:fontFamily="@font/boldfont"
@@ -201,12 +214,27 @@
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/about"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="65dp"
+                        android:fontFamily="@font/boldfont"
+                        android:text="@string/about_sheet_bottom"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintHorizontal_bias="0.114"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/linear_attribute" />
+
+                    <TextView
                         android:id="@+id/description"
                         android:layout_width="351dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="17dp"
+                        android:layout_marginTop="100dp"
                         android:fontFamily="@font/regularfont"
-                        app:layout_constraintHorizontal_bias="0.7"
+                        android:textColor="@color/white"
+                        android:gravity="fill"
                         app:layout_constraintLeft_toLeftOf="@id/linear_attribute"
                         app:layout_constraintRight_toRightOf="@id/linear_attribute"
                         app:layout_constraintTop_toBottomOf="@id/linear_attribute"
@@ -218,42 +246,31 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/boldfont"
+                        android:text="@string/detail_cast_title"
+                        android:textColor="@color/white"
                         android:textSize="18sp"
                         app:layout_constraintHorizontal_bias="0.114"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/description"
-                        android:text="@string/detail_cast_title" />
-
-                    <LinearLayout
-                        android:id="@+id/linear_cast"
-                        android:layout_width="328dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:orientation="horizontal"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/cast">
-
-                    </LinearLayout>
+                        app:layout_constraintTop_toBottomOf="@+id/description" />
 
                     <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/list_cast"
                         android:layout_width="328dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/cast"
                         tools:itemCount="5"
-                        tools:listitem="@layout/item_image_cast"/>
+                        tools:listitem="@layout/item_image_cast" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </com.google.android.material.card.MaterialCardView>
-
 
         </androidx.core.widget.NestedScrollView>
 
@@ -263,11 +280,11 @@
         android:id="@+id/back_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
         android:layerType="hardware"
         android:src="@drawable/icon_back"
-        android:layout_marginTop="50dp"
-        android:layout_marginStart="30dp"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

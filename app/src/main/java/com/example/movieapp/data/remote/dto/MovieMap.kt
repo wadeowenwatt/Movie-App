@@ -2,7 +2,6 @@ package com.example.movieapp.data.remote.dto
 
 import com.example.movieapp.data.remote.dto.category.Genre
 import com.example.movieapp.data.remote.dto.detail.DetailMovieData
-import com.example.movieapp.data.remote.dto.home.HomeMovieData
 import com.example.movieapp.data.remote.dto.home.Result
 import com.example.movieapp.domain.model.*
 
@@ -18,8 +17,9 @@ fun Result.toHome(): Home{
 
 fun DetailMovieData.toDetail() : Detail {
     return Detail(
+        adult = adult,
         title = title,
-        banner = backdrop_path,
+        banner = poster_path,
         description = overview,
         imdb = vote_average.toString(),
         genres = genres,
@@ -34,5 +34,13 @@ fun Genre.toCategory() : Categories {
     )
 }
 
-// CategoryDetail and Search not now
+fun Result.toSearch() : Search {
+    return Search(
+        id = id,
+        name = title,
+        image = backdrop_path!!
+    )
+}
+
+// CategoryDetail not now
 
