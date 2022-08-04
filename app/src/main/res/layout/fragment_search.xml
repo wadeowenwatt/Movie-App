@@ -14,7 +14,7 @@
         android:id="@+id/hello_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="70dp"
         android:fontFamily="@font/regularfont"
         android:text="@string/hello_user"
         android:textColor="@color/white"
@@ -29,14 +29,14 @@
         android:id="@+id/back_btn"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
         android:scaleX="0.5"
         android:scaleY="0.5"
         android:src="@drawable/icon_back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.082" />
+        app:layout_constraintVertical_bias="0.085" />
 
     <LinearLayout
         android:id="@+id/linearLayout"

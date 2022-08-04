@@ -136,6 +136,7 @@ class HomeFragment : Fragment() {
 
                         /* ViewPager2: Upcoming releases */
                         val adapter2 = URViewPagerAdapter(listUpcoming)
+
                         bindingLayout.viewpager2Upcoming.adapter = adapter2
 
                         bindingLayout.viewpager2Upcoming.offscreenPageLimit = 1

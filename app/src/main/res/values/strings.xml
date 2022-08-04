@@ -8,4 +8,11 @@
     <string name="about_sheet_bottom">About</string>
     <string name="not_found">Not found...</string>
     <string name="hello_user">Hello, User!</string>
+    <string name="search">Search</string>
+    <string name="genres">Genres</string>
+    <string name="most_popular">Most popular</string>
+    <string name="tv_series">TV Series</string>
+    <string name="movies">Movies</string>
+    <string name="in_theatre">In Theatre</string>
+    <string name="upcoming_releases">Upcoming releases</string>
 </resources>
