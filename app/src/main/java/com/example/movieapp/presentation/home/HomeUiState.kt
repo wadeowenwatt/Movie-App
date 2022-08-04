@@ -4,6 +4,6 @@ import com.example.movieapp.domain.model.HomeTypeModel
 
 data class HomeUiState(
     val isLoading: Boolean = false,
-    val home: List<HomeTypeModel> = emptyList(),
+    var home: List<HomeTypeModel> = emptyList(),
     val error: String = ""
 )

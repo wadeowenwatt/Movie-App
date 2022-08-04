@@ -24,7 +24,6 @@ class SearchViewModel @Inject constructor(
 
     fun run() {
         getSearchUseCase.query = query
-        Log.e("tester", uiState.value.search.toString())
         getSearch()
     }
 

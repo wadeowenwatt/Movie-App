@@ -20,7 +20,7 @@
         <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/fragment_detail.xml" value="0.19541427826993227" />
         <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/fragment_favourite.xml" value="0.209375" />
-        <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/fragment_search.xml" value="0.25" />
         <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/fragment_shuffle.xml" value="0.209375" />
         <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/fragment_ticket.xml" value="0.1953125" />
@@ -30,8 +30,8 @@
         <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/item_most_popular.xml" value="0.43154246100519933" />
         <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/item_search.xml" value="0.2" />
         <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/item_upcoming.xml" value="0.209375" />
-        <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/layout_bottom_sheet.xml" value="0.33" />
-        <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/layout_home.xml" value="0.33" />
+        <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/layout_bottom_sheet.xml" value="0.22" />
+        <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/layout_home.xml" value="0.22" />
         <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20833333333333334" />
         <entry key="..\:/Movie-App/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Movie-App/app/src/main/res/layout/item_most_popular.xml" value="0.24864130434782608" />

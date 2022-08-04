@@ -51,7 +51,13 @@ class DetailFragment : Fragment() {
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect { uiState ->
                 when {
+                    uiState.isLoading -> {
+                        binding.nestScrollView.visibility = View.GONE
+                        binding.progressBar.visibility = View.VISIBLE
+                    }
                     uiState.detail.isNotEmpty() -> {
+                        binding.nestScrollView.visibility = View.VISIBLE
+                        binding.progressBar.visibility = View.GONE
                         val iconUrl = "https://image.tmdb.org/t/p/w500${uiState.detail[0].banner}"
                         val uri = iconUrl.toUri().buildUpon().scheme("https").build()
                         binding.banner.load(uri)

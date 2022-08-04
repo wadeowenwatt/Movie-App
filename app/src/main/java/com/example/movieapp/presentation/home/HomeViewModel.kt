@@ -14,10 +14,15 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val getHomeUseCase: GetHomeUseCase) : ViewModel() {
 
-    private val _uiState = MutableStateFlow(HomeUiState())
+    private var _uiState = MutableStateFlow(HomeUiState())
     val uiState: StateFlow<HomeUiState> = _uiState
 
     init {
+        getHome()
+    }
+
+    fun refresh() {
+
         getHome()
     }
 

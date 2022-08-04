@@ -1,6 +1,7 @@
 package com.example.movieapp.presentation.home
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager2.widget.ViewPager2
 import com.example.movieapp.R
 import com.example.movieapp.databinding.LayoutHomeBinding
@@ -32,6 +34,46 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _bindingLayout = LayoutHomeBinding.inflate(inflater)
+
+        // Setting ViewPager for Most Popular
+        nextItemVisibleDimens = resources.getDimension(R.dimen.viewpager_next_item_visible_1)
+        currentItemHorizontalMarginDimens =
+            resources.getDimension(R.dimen.viewpager_current_item_horizontal_margin_1)
+
+        bindingLayout.viewpager2MostPopular.setPageTransformer(
+            transformerItem(
+                nextItemVisibleDimens,
+                currentItemHorizontalMarginDimens,
+                1
+            )
+        )
+
+        bindingLayout.viewpager2MostPopular.addItemDecoration(
+            HorizontalMarginItemDecoration(
+                requireContext(),
+                R.dimen.viewpager_current_item_horizontal_margin_1
+            )
+        )
+
+        // Setting ViewPager for Upcoming
+        nextItemVisibleDimens = resources.getDimension(R.dimen.viewpager_next_item_visible_2)
+        currentItemHorizontalMarginDimens =
+            resources.getDimension(R.dimen.viewpager_current_item_horizontal_margin_2)
+
+        bindingLayout.viewpager2Upcoming.setPageTransformer(
+            transformerItem(
+                nextItemVisibleDimens,
+                currentItemHorizontalMarginDimens,
+                2
+            )
+        )
+
+        bindingLayout.viewpager2Upcoming.addItemDecoration(
+            HorizontalMarginItemDecoration(
+                requireContext(),
+                R.dimen.viewpager_current_item_horizontal_margin_2
+            )
+        )
         return bindingLayout.root
     }
 
@@ -39,12 +81,33 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Binding view
+        bindingLayout.searchFilm.setOnClickListener {
+            it.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
+        }
+
+        bindingLayout.swipeRefresh.setOnRefreshListener {
+            viewModel.refresh()
+            bindingLayout.swipeRefresh.isRefreshing = false;
+        }
+
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect { uiState ->
                 when {
+                    uiState.isLoading -> {
+                        bindingLayout.progressBarMp.visibility = View.VISIBLE
+                        bindingLayout.progressBarUr.visibility = View.VISIBLE
+                        bindingLayout.viewpager2Upcoming.visibility = View.INVISIBLE
+                        bindingLayout.viewpager2MostPopular.visibility = View.INVISIBLE
+                    }
                     uiState.home.isNotEmpty() -> {
+                        bindingLayout.progressBarMp.visibility = View.GONE
+                        bindingLayout.progressBarUr.visibility = View.GONE
+                        bindingLayout.viewpager2Upcoming.visibility = View.VISIBLE
+                        bindingLayout.viewpager2MostPopular.visibility = View.VISIBLE
+
                         val listMostPopular = mutableListOf<ItemMostPopular>()
                         val listUpcoming = mutableListOf<ItemUpcoming>()
+
                         for (i in 0..10) {
                             listMostPopular.add(
                                 ItemMostPopular(
@@ -62,35 +125,12 @@ class HomeFragment : Fragment() {
                             )
                         }
 
-                        bindingLayout.searchFilm.setOnClickListener {
-                            it.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSearchFragment())
-                        }
-
                         /* ViewPager2: Most Popular */
                         val adapter1 = MPViewPagerAdapter(requireContext(), listMostPopular)
 
                         bindingLayout.viewpager2MostPopular.adapter = adapter1
 
                         bindingLayout.viewpager2MostPopular.offscreenPageLimit = 1
-
-                        nextItemVisibleDimens = resources.getDimension(R.dimen.viewpager_next_item_visible_1)
-                        currentItemHorizontalMarginDimens =
-                            resources.getDimension(R.dimen.viewpager_current_item_horizontal_margin_1)
-
-                        bindingLayout.viewpager2MostPopular.setPageTransformer(
-                            transformerItem(
-                                nextItemVisibleDimens,
-                                currentItemHorizontalMarginDimens,
-                                1
-                            )
-                        )
-
-                        bindingLayout.viewpager2MostPopular.addItemDecoration(
-                            HorizontalMarginItemDecoration(
-                                requireContext(),
-                                R.dimen.viewpager_current_item_horizontal_margin_1
-                            )
-                        )
 
                         bindingLayout.dotTab1.attachTo(bindingLayout.viewpager2MostPopular)
 
@@ -100,26 +140,8 @@ class HomeFragment : Fragment() {
 
                         bindingLayout.viewpager2Upcoming.offscreenPageLimit = 1
 
-                        nextItemVisibleDimens = resources.getDimension(R.dimen.viewpager_next_item_visible_2)
-                        currentItemHorizontalMarginDimens =
-                            resources.getDimension(R.dimen.viewpager_current_item_horizontal_margin_2)
-
-                        bindingLayout.viewpager2Upcoming.setPageTransformer(
-                            transformerItem(
-                                nextItemVisibleDimens,
-                                currentItemHorizontalMarginDimens,
-                                2
-                            )
-                        )
-
-                        bindingLayout.viewpager2Upcoming.addItemDecoration(
-                            HorizontalMarginItemDecoration(
-                                requireContext(),
-                                R.dimen.viewpager_current_item_horizontal_margin_2
-                            )
-                        )
-
                         bindingLayout.dotTab2.attachTo(bindingLayout.viewpager2Upcoming)
+
                     }
                     uiState.error.isNotEmpty() -> {}
                 }
