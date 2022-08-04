@@ -8,11 +8,10 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.movieapp.R
 import com.example.movieapp.databinding.FragmentSearchBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
@@ -26,7 +25,7 @@ class SearchFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentSearchBinding.inflate(inflater)
         return binding.root
     }
@@ -38,20 +37,28 @@ class SearchFragment : Fragment() {
         viewModel.query = argument.query
         viewModel.run()
 
+        binding.backBtn.setOnClickListener {
+            it.findNavController().popBackStack()
+        }
+
         // binding view
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect { uiState ->
                 when {
                     uiState.isLoading -> {
-
+                        binding.progressBar.visibility = View.VISIBLE
+                        binding.listSearchRecyclerView.visibility = View.GONE
+                        binding.searchScreenNotFound.visibility = View.GONE
                     }
                     uiState.search.isNotEmpty() -> {
+                        binding.progressBar.visibility = View.GONE
                         val adapter = SearchAdapter(uiState.search)
                         binding.listSearchRecyclerView.visibility = View.VISIBLE
                         binding.searchScreenNotFound.visibility = View.GONE
                         binding.listSearchRecyclerView.adapter = adapter
                     }
                     uiState.search.isEmpty() -> {
+                        binding.progressBar.visibility = View.GONE
                         binding.listSearchRecyclerView.visibility = View.GONE
                         binding.searchScreenNotFound.visibility = View.VISIBLE
                     }
@@ -73,7 +80,7 @@ class SearchFragment : Fragment() {
                     viewModel.query = query
                     viewModel.run()
                 }
-                return false
+                return true
             }
         })
     }
