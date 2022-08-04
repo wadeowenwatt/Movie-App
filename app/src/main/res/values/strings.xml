@@ -6,4 +6,5 @@
     <string name="imdb_most_popular">IMDb %s</string>
     <string name="imdb_detail_fragment">IMDb %.2f</string>
     <string name="about_sheet_bottom">About</string>
+    <string name="not_found">Not found...</string>
 </resources>

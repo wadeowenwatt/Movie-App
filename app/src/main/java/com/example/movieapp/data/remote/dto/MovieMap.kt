@@ -38,7 +38,7 @@ fun Result.toSearch() : Search {
     return Search(
         id = id,
         name = title,
-        image = backdrop_path!!
+        image = backdrop_path
     )
 }
 

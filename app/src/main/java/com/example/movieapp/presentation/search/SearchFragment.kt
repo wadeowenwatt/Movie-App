@@ -42,9 +42,18 @@ class SearchFragment : Fragment() {
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect { uiState ->
                 when {
+                    uiState.isLoading -> {
+
+                    }
                     uiState.search.isNotEmpty() -> {
-                        val adapter = SearchAdapter(uiState.search[0].listSearch)
+                        val adapter = SearchAdapter(uiState.search)
+                        binding.listSearchRecyclerView.visibility = View.VISIBLE
+                        binding.searchScreenNotFound.visibility = View.GONE
                         binding.listSearchRecyclerView.adapter = adapter
+                    }
+                    uiState.search.isEmpty() -> {
+                        binding.listSearchRecyclerView.visibility = View.GONE
+                        binding.searchScreenNotFound.visibility = View.VISIBLE
                     }
                     uiState.error.isNotEmpty() -> {}
                 }
@@ -53,7 +62,7 @@ class SearchFragment : Fragment() {
 
         binding.search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(p0: String?): Boolean {
-                return true
+                return false
             }
 
             override fun onQueryTextChange(query: String): Boolean {
@@ -64,7 +73,7 @@ class SearchFragment : Fragment() {
                     viewModel.query = query
                     viewModel.run()
                 }
-                return true
+                return false
             }
         })
     }

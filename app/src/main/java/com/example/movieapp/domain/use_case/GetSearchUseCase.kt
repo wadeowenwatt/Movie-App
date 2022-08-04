@@ -16,15 +16,13 @@ class GetSearchUseCase @Inject constructor(
     private val repository : IRepository
 ) {
    var query : String = "a"
-   operator fun invoke() : Flow<Resource<List<SearchTypeModel>>> = flow {
+   operator fun invoke() : Flow<Resource<List<Search>>> = flow {
        try {
            emit(Resource.Loading())
 
            val listSearch = repository.getSearch(query).results.map { it.toSearch() }
 
-           val data : List<SearchTypeModel> = listOf(SearchTypeModel(listSearch))
-
-           emit(Resource.Success(data))
+           emit(Resource.Success(listSearch))
        } catch (e : HttpException) {
            emit(Resource.Error(e.localizedMessage ?: "An unexpected error occurred. "))
        } catch (e : IOException) {
