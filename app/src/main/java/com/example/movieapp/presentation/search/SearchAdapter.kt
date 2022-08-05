@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.net.toUri
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -16,13 +17,15 @@ class SearchAdapter(private val listFilm: List<Search>) :
     RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
 
     class SearchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val image: ImageView = itemView.findViewById(R.id.search_image)
-        val name: TextView = itemView.findViewById(R.id.search_film_name)
+        val layout: ConstraintLayout = itemView.findViewById(R.id.constraint)
+        val image: ImageView = itemView.findViewById(R.id.search_image_2)
+        val name: TextView = itemView.findViewById(R.id.search_film_name_2)
+        val about: TextView = itemView.findViewById(R.id.search_about)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
         val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_search, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_search_2, parent, false)
         return SearchViewHolder(itemView)
     }
 
@@ -34,9 +37,11 @@ class SearchAdapter(private val listFilm: List<Search>) :
 
         holder.name.text = element.name
 
-        holder.image.setOnClickListener {
+        holder.about.text = element.about
+
+        holder.layout.setOnClickListener {
             it.findNavController()
-                .navigate(SearchFragmentDirections.actionSearchFragmentToDetailFragment(element.id.toInt()))
+                .navigate(SearchFragmentDirections.actionSearchFragmentToDetailFragment(element.id))
         }
 
     }

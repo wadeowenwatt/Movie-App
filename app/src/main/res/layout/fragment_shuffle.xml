@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_green_light"
-    tools:context=".fragment.ShuffleFragment">
+    tools:context=".presentation.navBottom.ShuffleFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

@@ -37,8 +37,10 @@ fun Genre.toCategory() : Categories {
 fun Result.toSearch() : Search {
     return Search(
         id = id,
+        about = overview,
         name = title,
-        image = backdrop_path
+        image2 = backdrop_path,
+        image = poster_path
     )
 }
 

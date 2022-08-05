@@ -1,7 +1,6 @@
 package com.example.movieapp.presentation.detail
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +12,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
 import com.example.movieapp.R
-import com.example.movieapp.databinding.FragmentDetailBinding
 import com.example.movieapp.databinding.LayoutBottomSheetBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,7 +27,7 @@ class DetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = LayoutBottomSheetBinding.inflate(inflater)
         binding.collapsingLayout.minimumHeight = 350
         return binding.root

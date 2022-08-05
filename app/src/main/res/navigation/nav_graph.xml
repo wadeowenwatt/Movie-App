@@ -10,26 +10,33 @@
         android:label="HomeFragment" >
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/userFragment"
-        android:name="com.example.movieapp.fragment.UserFragment"
+        android:name="com.example.movieapp.presentation.navBottom.UserFragment"
         android:label="UserFragment" />
     <fragment
         android:id="@+id/favouriteFragment"
-        android:name="com.example.movieapp.fragment.FavouriteFragment"
+        android:name="com.example.movieapp.presentation.navBottom.FavouriteFragment"
         android:label="FavouriteFragment" />
     <fragment
         android:id="@+id/ticketFragment"
-        android:name="com.example.movieapp.fragment.TicketFragment"
+        android:name="com.example.movieapp.presentation.navBottom.TicketFragment"
         android:label="TicketFragment" />
     <fragment
         android:id="@+id/shuffleFragment"
-        android:name="com.example.movieapp.fragment.ShuffleFragment"
+        android:name="com.example.movieapp.presentation.navBottom.ShuffleFragment"
         android:label="fragment_shuffle"
         tools:layout="@layout/fragment_shuffle" />
     <fragment
@@ -53,6 +60,10 @@
             app:argType="string" />
         <action
             android:id="@+id/action_searchFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 </navigation>

@@ -18,6 +18,7 @@
         <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/drawable/icon_tab_selector.xml" value="0.25" />
         <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout-v26/layout_bottom_sheet.xml" value="0.209375" />
         <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/activity_splash.xml" value="0.5" />
         <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/fragment_detail.xml" value="0.19541427826993227" />
         <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/fragment_favourite.xml" value="0.22" />
         <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/fragment_home.xml" value="0.1" />
@@ -29,6 +30,7 @@
         <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/item_image_cast.xml" value="0.67" />
         <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/item_most_popular.xml" value="0.43154246100519933" />
         <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/item_search.xml" value="0.2" />
+        <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/item_search_2.xml" value="0.20833333333333334" />
         <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/item_upcoming.xml" value="0.209375" />
         <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/layout_bottom_sheet.xml" value="0.22" />
         <entry key="..\:/Android Kotlin/MovieApp/app/src/main/res/layout/layout_home.xml" value="0.33" />
