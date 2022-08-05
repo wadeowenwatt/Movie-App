@@ -14,14 +14,14 @@
         <!-- Customize your theme here. -->
     </style>
 
-<!--    <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">-->
-<!--        <item name="tabBackground">@color/invisible</item>-->
-<!--    </style>-->
-
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="colorPrimary">@color/cardview_dark_background</item>
         <item name="colorPrimaryDark">@color/imdb_color</item>
         <item name="colorAccent">@color/white</item>
     </style>
 
+    <style name="SplashScreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/gradient_background</item>
+    </style>
+    
 </resources>
